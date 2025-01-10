@@ -1,5 +1,457 @@
-
+<!DOCTYPE html>
 <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Kamil Jaffar - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>     
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Root Color Variables */
+:root {
+    --primary-color: #ff7f50; /* Peach color */
+    --hover-color: #ff6347; /* Slightly darker peach */
+    --text-color: #333;
+    --bg-color: #fff;
+    --section-bg-color: #f9f9f9;
+    --heading-color: #ffcc00; /* Game-inspired yellow */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    color: var(--bg-color);
+    padding: 0 20px;
+}
+
+#interactive-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 40px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.hero-content h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.typed-text {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.cursor {
+    font-weight: 600;
+    color: var(--hover-color);
+}
+
+/* Navigation */
+nav {
+    position: relative;
+    margin-top: 20px;
+    padding: 10px 20px;
+}
+
+/* Navigation Links */
+nav a {
+    color: var(--bg-color);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 300;
+    font-size: 1.1rem;
+    padding: 8px 15px;
+    border-radius: 25px;
+    position: relative;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover Effect */
+nav a:hover {
+    color: var(--hover-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+}
+
+/* Active link outline effect */
+nav a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 25px;
+    border: 2px solid var(--hover-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover::after {
+    opacity: 1;
+}
+
+/* About Section */
+#about {
+    padding: 80px 30px;
+    text-align: center;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-color);
+}
+
+#about p {
+    max-width: 800px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    padding: 0 20px;
+}
+
+#about strong {
+    color: var(--primary-color);
+}
+
+/* Services Section */
+#services {
+    padding: 80px 30px;
+    text-align: center;
+}
+
+.grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background: var(--section-bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    width: 220px;
+    margin: 0 20px;
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Skills Section */
+#skills {
+    padding: 80px 30px;
+    text-align: center;
+}
+
+.skill-bar {
+    position: relative;
+    background: #ddd;
+    border-radius: 10px;
+    height: 20px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.skill-bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), #ffcc80);
+    border-radius: 10px;
+    width: 0%;
+    transition: width 1s ease-in-out;
+}
+
+.skill-name {
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--text-color);
+    padding: 0 20px;
+}
+
+.skill-bar:hover span {
+    width: 100%;
+}
+
+.skill-bar-1 span {
+    width: 90%;
+}
+
+.skill-bar-2 span {
+    width: 85%;
+}
+
+.skill-bar-3 span {
+    width: 80%;
+}
+
+.skill-bar-4 span {
+    width: 75%;
+}
+
+.skill-bar-5 span {
+    width: 40%;
+}
+
+.skill-bar-6 span {
+    width: 85%;
+}
+
+/* Projects Section */
+#projects {
+    padding: 80px 30px;
+    background-color: #111;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+#projects h2 {
+    font-size: 2.5rem;
+    color: var(--bg-color);
+    margin-bottom: 30px;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.project {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--bg-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.project:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.project h3 {
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+}
+
+.project p {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.project a {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--heading-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.project a:hover {
+    color: var(--bg-color);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+
+footer p {
+    font-size: 0.9rem;
+    padding: 0 20px;
+}
+
+/* Contact Section */
+#contact {
+    padding: 80px 30px;
+    background: linear-gradient(135deg, var(--section-bg-color), var(--primary-color));
+    text-align: center;
+    color: var(--bg-color);
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--bg-color);
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 600px;
+}
+
+.contact-info h3 {
+    margin: 0 0 20px;
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.contact-item i {
+    color: var(--primary-color);
+    margin-right: 20px;
+    font-size: 1.7rem;
+}
+
+.contact-item p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.contact-item a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.contact-item a:hover {
+    color: var(--primary-color);
+}
+
+/* Contact Form */
+.contact-form {
+    background: var(--bg-color);
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form h3 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+}
+
+.contact-form textarea {
+    height: 150px;
+}
+
+.contact-form input[type="submit"] {
+    background: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 15px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #e07b52;
+}
+
+    </style>
+    
+</head>
 
 <body>
     <header class="hero">
@@ -16,4 +468,233 @@
             </nav>
         </div>
     </header>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+
+            <div class="about-container">
+                <img src="profile.jpeg" alt="Muhammad Kamil Jaffar" class="profile-pic">
+                <p>
+                    Hi, I'm <strong>Muhammad Kamil Jaffar</strong>, a passionate <strong>Unity Developer</strong> with expertise in
+                    <em>hyper-casual games</em>, <em>simulations</em>, and <em>digital twin technologies</em>. My goal is to
+                    deliver <strong>immersive experiences</strong> that captivate and engage users.
+                </p>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>Services</h2>
+            <div class="grid">
+                <div class="service-card">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Game Development</h3>
+                    <p>Design and development of engaging 2D/3D games with Unity and C#, tailored to your vision.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Simulation Design</h3>
+                    <p>Realistic simulations for training, research, and entertainment purposes.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Digital Twins</h3>
+                    <p>Building cutting-edge digital twin solutions to enhance decision-making and visualization.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Freelance Consulting</h3>
+                    <p>Providing expert guidance and solutions in Unity development and project optimization.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="grid">
+                <div class="skill">
+                    <div class="skill-name">Unity Engine</div>
+                    <div class="skill-bar skill-bar-1"><span data-width="90"></span></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">C# Programming</div>
+                    <div class="skill-bar skill-bar-2"><span data-width="85"></span></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Game Design</div>
+                    <div class="skill-bar skill-bar-3"><span data-width="80"></span></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Simulations</div>
+                    <div class="skill-bar skill-bar-4"><span data-width="75"></span></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">AR/VR Development</div>
+                    <div class="skill-bar skill-bar-5"><span data-width="40"></span></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Version Control (Git/Plastic SCM)</div>
+                    <div class="skill-bar skill-bar-6"><span data-width="85"></span></div>
+                </div>
+            </div>
+        </section>
+        
+        
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project">
+                    <h3>Slave Escape (Casual Game)</h3>
+                    <p>Developed as part of my work at Salsoft Technologies, Slave Escape is a casual mobile game with a shop system, skins, coins, Unity Ads, and in-app purchases. I designed and developed the entire game, from concept to publishing on the App Store.</p>
+                    <a href="https://apps.apple.com/us/app/slave-escape/id6443410394?platform=ipad" target="_blank">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Slap and Run (Hyper-casual Game)</h3>
+                    <p>As an intern at Penalogix, I contributed to the development of Slap and Run, a hyper-casual game with multiple game modes and difficulty levels. I focused on level design and refining the game's mechanics to ensure an engaging player experience.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.hnpuzzlegames.slap.run.running.games" target="_blank">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Real-Time 3D Viewer (Digital Twin)</h3>
+                    <p>Currently working on this innovative project at The Location Lab Pvt Ltd. The Real-Time 3D Viewer offers customizable features such as measurements, simulation tools, and seasonal simulations, enabling interactive visualization of real-world designs. It’s a highly dynamic project with a focus on enhancing collaboration and interactivity through Digital Twins.</p>
+                    <a href="https://hxdr.com/loclab-cloud/" target="_blank">View Project</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>If you have any questions or want to discuss a project, feel free to reach out!</p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p><a href="mailto:kamilkhanjaffar@gmail.com">kamilkhanjaffar@gmail.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <p><a href="tel:+923320203502">+92 332 0203502</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <p><a href="https://www.linkedin.com/in/kamil-jaffar">View Profile</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <p><a href="https://github.com/kamil-jaffar">View Repositories</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+             
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Muhammad Kamil Jaffar. All rights reserved.</p>
+    </footer>
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+<script>
+
+var options = {
+            strings: ["Unity Developer", "Game Developer", "Simulation Expert", "Freelance Consultant"],
+            typeSpeed: 80,
+            backSpeed: 60,
+            backDelay: 1000,
+            startDelay: 500,
+            loop: true
+        };
+        var typed = new Typed(".typed-text", options);
+
+        // Cursor Interaction and Background Animation
+        const canvas = document.getElementById('interactive-bg');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const maxParticles = 100;
+        const mouse = {
+            x: null,
+            y: null,
+        };
+
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+
+        function Particle(x, y) {
+            this.x = x;
+            this.y = y;
+            this.size = Math.random() * 3 + 1;
+            this.vx = Math.random() * 2 - 1;
+            this.vy = Math.random() * 2 - 1;
+        }
+
+        Particle.prototype.update = function () {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            if (mouse.x && mouse.y) {
+                const dx = this.x - mouse.x;
+                const dy = this.y - mouse.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < 100) {
+                    this.vx += dx / 100;
+                    this.vy += dy / 100;
+                }
+            }
+
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        };
+
+        Particle.prototype.draw = function () {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
+            ctx.fill();
+        };
+
+        function initParticles() {
+            for (let i = 0; i < maxParticles; i++) {
+                particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach((particle) => {
+                particle.update();
+                particle.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        initParticles();
+        animate();
+
+        // Function to trigger animation on hover
+const skillBars = document.querySelectorAll('.skill-bar span');
+
+skillBars.forEach(bar => {
+    // When mouse enters the skill bar
+    bar.parentElement.addEventListener('mouseenter', () => {
+        bar.style.width = bar.getAttribute('data-width') + '%';
+    });
+
+    // When mouse leaves the skill bar
+    bar.parentElement.addEventListener('mouseleave', () => {
+        bar.style.width = '0%';
+    });
+});
+    </script>
+
+</html>
