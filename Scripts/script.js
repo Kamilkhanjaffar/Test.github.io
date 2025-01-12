@@ -95,3 +95,18 @@ bar.parentElement.addEventListener('mouseleave', () => {
 bar.style.width = '0%';
 });
 });
+
+// Collapsible functionality for company cards
+document.querySelectorAll('.company-card').forEach(card => {
+    const projects = card.querySelector('.projects');
+    const companyName = card.querySelector('.company-name');
+
+    card.addEventListener('click', () => {
+        const isVisible = projects.style.display === 'block';
+        projects.style.display = isVisible ? 'none' : 'block';
+        // companyName.textContent += isVisible ? ' ▼' : ' ▲';
+    });
+
+    // Initialize projects as hidden
+    projects.style.display = 'none';
+});
