@@ -536,3 +536,37 @@ header p {
     margin: 5px 0;
     font-size: 1.2rem;
 }
+
+.responsive-video {
+    width: 100%;
+    height: auto;
+    max-width: 640px; /* Optional: Limit the maximum width */
+    display: block;
+    margin: 0 auto; /* Center the video */
+}
+
+/* Landscape-specific aspect ratio */
+.responsive-video.landscape {
+    aspect-ratio: 16 / 9;
+}
+
+/* Portrait-specific aspect ratio */
+.responsive-video.portrait {
+    aspect-ratio: 9 / 16;
+}
+
+.video-container {
+    width: 100%;
+    padding: 10px; /* Optional: Add some padding around the video */
+    box-sizing: border-box;
+}
+
+/* Iframe inside the responsive container */
+.responsive-video iframe {
+    position: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
