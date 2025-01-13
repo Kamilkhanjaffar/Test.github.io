@@ -247,27 +247,27 @@ nav a:hover::after {
 }
 
 /* Projects Section */
-#projects {
+#frontprojects {
     padding: 80px 30px;
     background-color: #111;
     color: #e0e0e0;
     text-align: center;
 }
 
-#projects h2 {
+#frontprojects h2 {
     font-size: 2.5rem;
     color: var(--bg-color);
     margin-bottom: 30px;
 }
 
-.projects {
+.frontprojects {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     padding: 0 20px;
 }
 
-.project {
+.frontproject {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     padding: 20px;
@@ -277,24 +277,24 @@ nav a:hover::after {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.project:hover {
+.frontproject:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-.project h3 {
+.frontproject h3 {
     font-size: 1.8rem;
     color: var(--heading-color);
     margin-bottom: 10px;
 }
 
-.project p {
+.frontproject p {
     font-size: 1rem;
     color: #ccc;
     margin-bottom: 15px;
 }
 
-.project a {
+.frontproject a {
     display: inline-block;
     margin-top: 10px;
     color: var(--heading-color);
@@ -303,7 +303,7 @@ nav a:hover::after {
     transition: color 0.3s ease;
 }
 
-.project a:hover {
+.frontproject a:hover {
     color: var(--bg-color);
 }
 
